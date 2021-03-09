@@ -61,7 +61,31 @@
             addRagepickerClassBetweenDays('jqyc-range-choosen-between');
             $calendar.trigger('jqyc.rangeChoose');
             $calendar.trigger('jqyc.rageChoose');  // This is backward compabilty !!!
-        }
+        },
+        addRangeClass: function(startYear, startMonth, startDay, endYear, endMonth, endDay, rangeClass){
+
+
+            $('.jqyc-range-choosen-between').removeClass('jqyc-range-choosen-between');
+            $calendar.data('rangepicker-end-day-of-month', false);
+            $calendar.data('rangepicker-end-month', false);
+            $calendar.data('rangepicker-end-year', false);
+            $calendar.data('rangepicker-end-choosen', false);
+            $calendar.data('rangepicker-start-day-of-month', false);
+            $calendar.data('rangepicker-start-month', false);
+            $calendar.data('rangepicker-start-year', false);
+            $calendar.data('rangepicker-start-choosen', false);
+            $calendar.data('rangepicker-start-day-of-month', startDay);
+            $calendar.data('rangepicker-start-month', startMonth);
+            $calendar.data('rangepicker-start-year', startYear);
+            $calendar.data('rangepicker-start-choosen', true);
+            $calendar.data('rangepicker-end-day-of-month', endDay);
+            $calendar.data('rangepicker-end-month', endMonth);
+            $calendar.data('rangepicker-end-year', endYear);
+            $calendar.data('rangepicker-end-choosen', true);
+            addRagepickerClassBetweenDays(rangeClass);
+            $calendar.trigger('jqyc.rangeChoose');
+            $calendar.trigger('jqyc.rageChoose');  // This is backward compabilty !!!
+        }        
     };
 
     $.fn.calendar = function (options) {
